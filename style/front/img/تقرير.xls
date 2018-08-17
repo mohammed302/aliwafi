@@ -1,0 +1,44 @@
+<table><thead><tr><th>تقريرعام</th><table id="example" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+                <thead>
+                    <tr role="row"><th style="width: 86px;" class="sorting_desc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="descending" aria-label="رقم الطلب : activate to sort column ascending">رقم الطلب </th><th style="width: 51px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="الاسم : activate to sort column ascending">الاسم </th><th style="width: 71px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="المنطقة : activate to sort column ascending">المنطقة </th><th style="width: 61px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="المدينة : activate to sort column ascending">المدينة </th><th style="width: 89px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="رقم الجوال : activate to sort column ascending">رقم الجوال </th><th style="width: 154px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="البريد الالكتروني : activate to sort column ascending">البريد الالكتروني </th><th style="width: 68px;" class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="الجنسية  : activate to sort column ascending">الجنسية  </th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="خيارات: activate to sort column ascending" style="width: 69px;">خيارات</th></tr>
+                </thead>
+
+                <tbody>
+                                                            
+
+
+
+
+                                          
+                <tr role="row" class="odd">
+
+
+                        <td data-title="رقم " class="sorting_1">1</td>
+
+
+                        <td class="noter" data-title="الاسم">
+                            محمد
+                        </td>
+                        <td class="noter" data-title="المنطقة">
+                            مكة المكرمة
+                        </td>
+                        <td class="noter" data-title="المدينة">
+                            جدة
+                        </td>
+                        <td class="noter" data-title="رقم الجوال">
+                            9725954448
+                        </td>
+                         <td class="noter" data-title="البريد الالكتروني ">
+                            mohamad302@hotmail.com
+                        </td>
+                         <td class="noter" data-title="البريد الالكتروني ">
+                                                  سعودي
+                                                 </td>
+                        <td data-title="خيارات">
+
+                            <a class=" delete-post-link btn btn-warning" data-id="1" value="http://localhost/reg/admin-cpx/orders/destroy/1">
+                                <span class="glyphicon glyphicon-trash"></span> حذف</a>
+                        </td>
+
+                    </tr></tbody>
+            </table>

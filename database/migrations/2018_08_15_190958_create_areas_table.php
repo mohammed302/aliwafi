@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateChargesTable extends Migration {
+class CreateAreasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,10 @@ class CreateChargesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('charges', function(Blueprint $table)
+		Schema::create('areas', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('order_id');
-			$table->integer('value');
+			$table->string('name', 250);
 			$table->timestamps();
 		});
 	}
@@ -29,7 +28,7 @@ class CreateChargesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('charges');
+		Schema::drop('areas');
 	}
 
 }

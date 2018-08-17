@@ -40,7 +40,7 @@ class AreaController extends Controller
 
       $request->validate([
 
-            'name' => 'required',
+            'name' => 'required|unique:areas',
 
         
         ]);
@@ -75,7 +75,7 @@ class AreaController extends Controller
 
         $request->validate( [
          
-            'name' => 'required',
+            'name' => 'required|unique:areas,name,' . $id,
 
           
         ]);

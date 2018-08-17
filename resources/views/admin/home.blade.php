@@ -34,8 +34,8 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span class="counter" data-counter="counterup" data-value="{{$norders}}">0</span></div>
-                    <div class="desc">الطلبات الجديدة</div>
+                        <span class="counter" data-counter="counterup" data-value="{{$orders}}">0</span></div>
+                    <div class="desc"> المسجلين</div>
                 </div>
 
             </div>
@@ -47,8 +47,8 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span class="counter" data-counter="counterup" data-value="{{$orders}}">0</span></div>
-                    <div class="desc">الطلبات المكتمله</div>
+                        <span class="counter" data-counter="counterup" data-value="{{$areas}}">0</span></div>
+                    <div class="desc"> المناطق</div>
                 </div>
 
             </div>
@@ -60,8 +60,8 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span class="counter" data-counter="counterup" data-value="{{$commission}}">0</span></div>
-                    <div class="desc"> اجمالي العمولة</div>
+                        <span class="counter" data-counter="counterup" data-value="{{$cities}}">0</span></div>
+                    <div class="desc"> المدن </div>
                 </div>
 
             </div>

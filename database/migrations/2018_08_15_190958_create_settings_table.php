@@ -15,11 +15,10 @@ class CreateSettingsTable extends Migration {
 		Schema::create('settings', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('freelancer_link');
 			$table->string('name');
-			$table->string('link');
-			$table->string('google');
-			$table->string('pay_message', 250);
+			$table->string('msg');
+			$table->string('home_text', 250);
+                        $table->string('img');
 			$table->timestamps();
 			$table->string('color', 100)->default('ss');
 		});

@@ -20,7 +20,7 @@
         </div>
         <div class="portlet-body form">
             <form class="form-horizontal" method="post"  id="myform"
-
+                    enctype="multipart/form-data" 
                   action="{{route('admin.setting.update')}}" role="form">
 
                 {!! csrf_field() !!}
@@ -80,7 +80,7 @@
 
                     <div class="form-group">
                         <label class="col-md-3 control-label">
-                          النص في الرئيسية
+                            النص في الرئيسية
 
                         </label>
                         <div class="col-md-9">
@@ -108,7 +108,26 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-md-3">الصورة </label>
+                        <div class="col-md-9">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"
+                                     style="width: 200px;  overflow: hidden;">
+                                    <img src="{{ asset('img/'.$setting->img)}}" class="img-responsive">
+                                </div>
+                                <div>
+                                    <span class="btn default btn-file">
 
+                                        <input type="file" name="imgPath" accept="image/*" >
+                                    </span>
+                                    <a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+                                        حذف
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 

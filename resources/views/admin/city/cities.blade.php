@@ -61,8 +61,7 @@
                                class="delete-post-link"
                                > <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
-                            @else
-                            لا يمكن الحذف   
+                           
                             @endif
                             <a href="{{route("cities.edit",$c->id)}}" >
                                 <i class="fa fa-pencil" aria-hidden="true"></i></a>

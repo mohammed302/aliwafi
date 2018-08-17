@@ -6,33 +6,42 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Setting;
 use App\Order;
-use App\Bank;
-use App\Payment;
-use App\Product;
+use App\Area;
+use App\City;
 use Carbon;
 
 class HomeController extends Controller {
 
-    ////ihome page
+    ////home page
     public function index() {
 
 
         $data['setting'] = Setting::find(1);
-
+        $data['areas'] = Area::all();
+        $data['cities'] = City::all();
         return view('front.index', $data);
     }
 
-    
+    public function cities(Request $request, $id) {
+        if ($request->ajax()) {
+            return response()->json([
+                        'cities' => City::where('area_id', $id)->get()
+            ]);
+        }
+    }
+
     // store order
     public function storeOrder(Request $request) {
 
 
-        $this->validate($request, [
+     $this->validate($request, [
 
             'name' => 'required',
-            'tel' => 'required',
-            'address' => 'required',
-         
+            'mobile' => 'required|unique:orders',
+            'email' => 'required|unique:orders',
+            'city' => 'required',
+            'area' => 'required',
+            'nationality' =>'required',
         ]);
 
 
@@ -40,17 +49,17 @@ class HomeController extends Controller {
 
         $order = new Order();
         $order->name = $request->name;
-        $order->whatsup = $request->tel;
-        $order->address = $request->address;
+        $order->mobile = $request->mobile;
+        $order->email = $request->email;
         $order->date = Carbon\Carbon::now();
-        $order->store=$id;
+        $order->area_id =$request->area;
+        $order->city_id =$request->city;
+        $order->nationalty =$request->nationality;
         $order->save();
         $request->session()->flash('alert-success', 'تم بنجاح');
 
 
-        return $order->id;
+        return 'done';
     }
-    
-   
 
 }

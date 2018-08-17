@@ -51,14 +51,18 @@
 
 
                         <td data-title="خيارات">
-
-
+                            <?php $t=0;?>
+                            @foreach($c->cities as $city)
+<?php $t++;?>
+@endforeach
+@if($t==0)
                             <a href="#"	value="{{route("areas.destroy",["country" =>$c])}}"
                                data-token="{{ csrf_token() }}"
                                data-id="{{ $c->id }}" 
                                class="delete-post-link"
                                > <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
+@endif
                             <a href="{{route("areas.edit",["country" =>$c->id])}}" >
                                 <i class="fa fa-pencil" aria-hidden="true"></i></a>
 

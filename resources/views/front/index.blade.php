@@ -14,7 +14,7 @@
 
 
         <link rel="stylesheet" type="text/css" href="{{asset('style/front/css/font-awesome.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('style/front/css/style.css?v=5')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('style/front/css/style.css?v=7')}}">
         <style>
 
         </style>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="text-center img-text">
-            <img src="{{asset('img/bg.jpg')}}" class="img-responsive">
+            <img src="{{asset('img/'.$setting->img)}}" class="img-responsive">
         </div>
         <!--form-->
         <form class="form-horizontal" method="post" role="form"
@@ -64,9 +64,11 @@
 
                             <option   value="-1">
                                 اختر   المنطقة </option>
-                            <option   value="1">
-                                اختر   المنطقة </option>
-
+                            @foreach($areas as $area)
+                            <option   value="{{$area->id}}">
+                                {{$area->name}}
+                            </option>
+                            @endforeach
 
 
                         </select>
@@ -80,9 +82,7 @@
 
                             <option   value="-1">
                                 اختر   المدينة </option>
-                            <option   value="1">
-                                اختر   المنطقة </option>
-
+                          
 
 
                         </select>
@@ -107,13 +107,13 @@
                     <div class="col-md-6 col-sm-6 small-margin">
 
                         <input type="text" class="form-control input-medium"
-                               name="tel" minlength="10" maxlength="10" placeholder=" رقم الجوال  9665XXXXXXXX" required="">
+                               name="tel" minlength="10" maxlength="10" placeholder=" رقم الجوال  05XXXXXXXX" required="">
 
                     </div>
                     <div class="col-md-6 col-sm-6 small-margin">
 
                         <input type="email" class="form-control input-medium"
-                               name="email" minlength="10" maxlength="10" placeholder=" البريد الإلكتروني" required="">
+                               name="email"  placeholder=" البريد الإلكتروني" required="">
 
                     </div>
                 </div>
@@ -122,11 +122,13 @@
             <div class="form-actions">
                 <div class="row">
                     <div class=" col-md-12" >
-                        <button type="submit" class="btn btn-submit" >أرسل طلب</button>
+                        <button type="submit" class="btn btn-submit" >أرسل </button>
                         <div class="alertm text-center hide">
-                            {{$setting->google}}
+                            {{$setting->msg}}
                         </div>
-
+                        <div class="alertm-error text-center hide">
+                         
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,8 +138,8 @@
         <footer class="page-footer font-small blue">
 
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3"> جميع الحقوق محفوظة:
-               {{$setting->name}}© 2018
+            <div class="footer-copyright text-center py-3"> جميع الحقوق محفوظة
+                {{$setting->name}}© {{date('Y')}}
             </div>
             <!-- Copyright -->
 
@@ -157,8 +159,22 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
         <script src="{{asset('style/assets/global/scripts/jquery.validate.min.js')}}"></script>
-
-        <script type="text/javascript">
+        
+        
+  <script>
+    $('#area').on('change', e => {
+        $('#city').empty()
+        $.ajax({
+            url: '{{url("cities")}}'+'/'+ $('#area').val(),
+            success: data => {
+                data.cities.forEach(city =>
+                    $('#city').append(`<option value="${city.id}">${city.name}</option>`)
+                )
+            }
+        })
+    })
+</script>
+ <script type="text/javascript">
 $.validator.addMethod("valueNotEquals", function (value, element, arg) {
     return arg != value;
 }, "Value must not equal arg.");
@@ -187,8 +203,8 @@ $("#orderform").validate({
 
         },
         email: {
-            required: "يرجى ادخال البريد الالكتروني "
-
+            required: "يرجى ادخال البريد الالكتروني ",
+            email:"ادخل بريد صحيح"
         },
         tel: {
             required: "يرجى ادخال رقم ",
@@ -209,10 +225,11 @@ $("#orderform").validate({
     submitHandler: function (form) {
         var _token = $("input[name='_token']").val();
         var name = $("input[name='name']").val();
-        var address = $("input[name='address']").val()
+        var email = $("input[name='email']").val()
         var tel = $("input[name='tel']").val();
-        var link = $("input[name='link']").val();
-
+        var area = $("#area").val();
+        var city = $("#city").val();
+        var nationality = $("#nationality").val();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $("input[name='_token']").attr('content')
@@ -221,23 +238,29 @@ $("#orderform").validate({
         $.ajax({
             url: "{{route('front.order')}}",
             type: 'post',
-            data: {_token: _token, name: name, address: address, tel: tel, link: link},
+            data: {_token: _token, name: name, email: email, mobile: tel, area: area,city:city,nationality:nationality},
             success: function (data) {
                 $(".alertm").removeClass('hide')
                 $(".alertm").removeClass('hida')
-                $(".alertm").fadeTo(2000, 500).slideUp(20500, function () {
-                    $(".alertm").slideUp(20500);
+                $(".alertm").fadeTo(2000, 500).slideUp(500, function () {
+                    $(".alertm").slideUp(500);
                 });
 
-                //    toastr.info(' {{$setting->google}}');
+                toastr.info(' {{$setting->msg}}');
                 $('#orderform')[0].reset();
             },
             error: function (data)
             {
                 console.log(data);
                 var dt = '';
-                $.each(data.responseJSON, function (key, value) {
+                $.each(data.responseJSON.errors, function (key, value) {
                     dt = dt + '<li>' + value + '</li>';
+                });
+                   $(".alertm-error").removeClass('hide')
+                $(".alertm-error").removeClass('hida')
+                 $(".alertm-error").html(dt)
+                $(".alertm-error").fadeTo(2000, 500).slideUp(500, function () {
+                    $(".alertm-error").slideUp(500);
                 });
                 toastr.error(dt);
 

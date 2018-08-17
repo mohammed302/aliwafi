@@ -23,75 +23,13 @@ class OrderController extends Controller {
     function orders() {
 
         $data['orders'] = Order::orderby('id', 'desc')->get();
-        $data['states'] = State::all();
         $data['color'] = Setting::find(1);
         return view('admin.order.orders', $data);
     }
 
-    /// Orders search
-    function orders_search($id) {
+  
 
-        $data['orders'] = Order::where('status_id', $id)->orderby('id', 'desc')->get();
-        $data['states'] = State::all();
-        $data['color'] = Setting::find(1);
-        return view('admin.order.orders', $data);
-    }
-
-    // update
-    function update(Request $request, $id, $st) {
-
-
-
-        $order = Order::findorfail($id);
-        $order->status_id = $st;
-        $order->save();
-        // return redirect()->route('admin.orders');
-    }
-
-    // update order
-    function updateOrder(Request $request, $id) {
-
-
-
-        $order = Order::findorfail($id);
-        $order->status_id = 8;
-        $order->order = $request->order;
-        $order->save();
-    }
-
-    // update charge
-    function updateCharge(Request $request, $id) {
-
-
-
-        $order = Order::findorfail($id);
-        $order->status_id = 9;
-        $order->charge = $request->charge;
-        $order->save();
-    }
-
-    // update cost
-    function updateCost(Request $request, $id) {
-
-
-
-        $order = Order::findorfail($id);
-        $order->status_id = 5;
-        $order->purshase_cost = $request->purshase_cost;
-        $order->charge_cost = $request->charge_cost;
-        $order->commission = $request->commission;
-        $order->total = $request->total;
-        $order->save();
-    }
-
-    // update c
-    function edit($id) {
-        $data['order'] = Order::findorfail($id);
-        $data['states'] = State::all();
-        $data['color'] = Setting::find(1);
-        return view('admin.order.updateState', $data);
-    }
-
+   
     // destroy order
     function destroyOrder(Request $request, $order) {
         $or = Order::findorfail($order);
@@ -105,7 +43,7 @@ class OrderController extends Controller {
  /// Orders reports
     function reports() {
 
-        $data['orders'] = Order::where('total','!=' ,0)->orderby('id', 'desc')->get();
+        $data['orders'] = Order::orderby('id', 'desc')->get();
         $data['color'] = Setting::find(1);
         return view('admin.order.reports', $data);
     }

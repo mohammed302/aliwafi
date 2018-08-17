@@ -56,6 +56,9 @@
             /*   body, h1, h2, h3, a, label, p{
                 font-family: 'nawar' !important;
                 }*/
+            .dataTables_info{
+                display: none;
+            }
             .chosen-container {
                 width: 100% !Important;
                 height: 30px;
@@ -181,7 +184,7 @@
                             text-align: center; margin: 37px auto;
                             margin-top: 9px;
                             margin-bottom:17px;
-                            margin-right: -16px;
+                        
                             ">
                             <img src="{{asset('style/front/img/logo.PNG')}}" class="img-resoisive ">
                             <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -246,7 +249,7 @@
 
                         <li class="heading">
 
-                            <h3 class="uppercase">إدارة الطلبات
+                            <h3 class="uppercase">إدارة المسجلين
                             </h3>
                         </li>
                         <li class="nav-item  @if(Request::segment(2)=='orders'  )
@@ -254,7 +257,7 @@
                             @endif  ">
                             <a href="{{ Route('admin.orders')}}" class="nav-link ">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                                <span class="title">  الطلبات
+                                <span class="title">  المسجلين
                                 </span>
                             </a>
 
@@ -290,10 +293,9 @@
                             </a>
 
                         </li>
-                       
-                           <li class="heading">
+                       <li class="heading">
 
-                            <h3 class="uppercase"> التقارير
+                            <h3 class="uppercase"> تقارير  
                             </h3>
                         </li>
                         <li class="nav-item  @if(Request::segment(2)=='reports'  )
@@ -301,10 +303,11 @@
                             @endif  ">
                             <a href="{{ Route('admin.reports')}}" class="nav-link ">
                                 <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                                <span class="title"> التقارير</span>
+                                <span class="title">تقارير </span>
                             </a>
 
                         </li>
+                         
 
                     </ul>
                     <!-- END SIDEBAR MENU -->

@@ -14,7 +14,7 @@
     
      
  <link rel="stylesheet" type="text/css" href="{{asset('style/front/css/font-awesome.min.css')}}">
- <link rel="stylesheet" type="text/css" href="{{asset('style/front/css/style.css')}}">
+ <link rel="stylesheet" type="text/css" href="{{asset('style/front/css/style.css?v=2')}}">
         <style>
 
         </style>
@@ -30,7 +30,9 @@
             <div class="container">
                 <div class="navbar-header">
 
-                   <img src="{{asset('style/front/img/logo.PNG')}}" class="img-resposive">
+               <a class="navbar-brand" href="{{route('front.index')}}" >
+                    خطأ
+                    </a>
                 </div>
 
             </div><!-- /.container -->

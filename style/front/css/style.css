@@ -69,7 +69,7 @@ body {
 }
 
 .form-control {
-    border-radius:0px;
+    border-radius: 6px;
     background-color: #f7f7f7;
     height: 54px;
 }
@@ -129,7 +129,7 @@ iframe{
 .hide{
     display: none;
 }
-.alertm {
+.alertm,.alertm-error {
     font-size: 25px;
     background-color: #f6f15e;
     border: 1px red solid;

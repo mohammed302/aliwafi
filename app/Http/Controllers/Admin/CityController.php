@@ -41,7 +41,7 @@ class CityController extends Controller
 
         $this->validate($request, [
 
-            'name' => 'required',
+            'name' => 'required|unique:cities',
             'area' => 'required',
         ]);
 
@@ -72,7 +72,7 @@ class CityController extends Controller
 
         $this->validate($request, [
          
-            'name' => 'required',
+            'name' => 'required|unique:cities,name,' . $id,
             'area' => 'required',
           
         ]);

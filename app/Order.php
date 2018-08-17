@@ -6,21 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-   public function state()
+   public function area()
     {
 
-        return $this->hasOne('App\State', 'id', 'status_id');
+        return $this->hasOne('App\Area', 'id', 'area_id');
     }
     
-     public function store_name()
+     public function city()
     {
 
-        return $this->hasOne('App\Store', 'id', 'store');
+        return $this->hasOne('App\City', 'id', 'city_id');
     }
     
-     public function products()
-    {
-
-        return $this->hasMany('App\Product', 'order_id', 'id');
-    }
+    
 }

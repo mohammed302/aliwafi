@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Setting;
 use App\Admin;
 use App\Order;
+use App\City;
+use App\Area;
+use Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,11 +32,9 @@ class AdminController extends Controller
     {
 
         $data['admins'] = Admin::count();
-        $data['norders'] = Order::where('status_id',1)->count();
-        $data['orders'] =  Order::where('status_id',10)->count();
-        $data['commission'] =  Order::sum('commission');
-
-
+        $data['orders'] = Order::count();
+        $data['areas'] = Area::count();
+        $data['cities'] =  City::count();
         $data['color'] = Setting::find(1);
         return view('admin.home', $data);
     }
@@ -49,12 +50,33 @@ class AdminController extends Controller
         $this->validate($request, ['name' => 'required',
             'msg' => 'required','home_text'=>'required',
             'color' => 'required',]);
+          if ($request->imgPath != null) {
+            $image = $request->file('imgPath');
 
+            $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = base_path() . '/img/thumbnail';
+
+            $img = Image::make($image->getRealPath(), array(
+                        'width' => 300,
+                        'height' => 300,
+                            //  'grayscale' => false
+            ));
+            // $img->crop(new Point(0, 0), new Box(45, 45));
+            $img->save($destinationPath . '/' . $input['imagename']);
+
+            $destinationPath = base_path() . '/img/';
+
+            $image->move($destinationPath, $input['imagename']);
+        }
         $setting = Setting::find(1);
         $setting->name = $request->name;
         $setting->color = $request->color;
         $setting->msg = $request->msg;
         $setting->home_text = $request->home_text;
+          if ($request->imgPath != null) {
+          $setting->img = $input['imagename'];
+        }
         $setting->update();
         $request->session()->flash('alert-success', 'تم بنجاح');
         return redirect()->back();

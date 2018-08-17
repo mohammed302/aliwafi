@@ -11,4 +11,12 @@ class City extends Model
 
         return $this->hasOne('App\Area', 'id','area_id');
     }
+    
+     public function orders()
+    {
+
+        return $this->hasOne('App\Order', 'city_id','id');
+    }
+    
+    
 }
