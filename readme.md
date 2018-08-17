@@ -1,1 +1,1 @@
-Hatliy laravel project
+Reg laravel project
