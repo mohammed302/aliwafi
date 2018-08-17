@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 06 أغسطس 2018 الساعة 10:49
+-- Generation Time: 17 أغسطس 2018 الساعة 14:31
 -- إصدار الخادم: 5.7.21
--- PHP Version: 7.2.4
+-- PHP Version: 7.1.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hatliy`
+-- Database: `registation`
 --
 
 -- --------------------------------------------------------
@@ -55,40 +55,48 @@ INSERT INTO `admins` (`id`, `type`, `name`, `branch`, `email`, `password`, `pass
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `banks`
+-- بنية الجدول `areas`
 --
 
-DROP TABLE IF EXISTS `banks`;
-CREATE TABLE IF NOT EXISTS `banks` (
+DROP TABLE IF EXISTS `areas`;
+CREATE TABLE IF NOT EXISTS `areas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- إرجاع أو استيراد بيانات الجدول `banks`
+-- إرجاع أو استيراد بيانات الجدول `areas`
 --
 
-INSERT INTO `banks` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(2, 'الراجحي', '2018-07-13 06:00:12', '2018-07-13 08:30:42');
+INSERT INTO `areas` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(2, 'مكة المكرمة', '2018-08-15 15:54:52', '2018-08-15 12:54:52'),
+(5, 'الرياض', '2018-08-15 12:57:36', '2018-08-15 12:57:36');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `charges`
+-- بنية الجدول `cities`
 --
 
-DROP TABLE IF EXISTS `charges`;
-CREATE TABLE IF NOT EXISTS `charges` (
+DROP TABLE IF EXISTS `cities`;
+CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) NOT NULL,
-  `value` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `area_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+--
+-- إرجاع أو استيراد بيانات الجدول `cities`
+--
+
+INSERT INTO `cities` (`id`, `name`, `area_id`, `created_at`, `updated_at`) VALUES
+(19, 'الرياض', 5, '2018-08-15 14:39:07', '2018-08-15 14:39:07');
 
 -- --------------------------------------------------------
 
@@ -102,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- إرجاع أو استيراد بيانات الجدول `migrations`
@@ -118,7 +126,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2018_08_05_181512_create_settings_table', 0),
 (8, '2018_08_05_181512_create_states_table', 0),
 (9, '2018_08_05_181512_create_stores_table', 0),
-(10, '2018_08_05_181512_create_users_table', 0);
+(10, '2018_08_05_181512_create_users_table', 0),
+(11, '2018_08_15_190958_create_admins_table', 0),
+(12, '2018_08_15_190958_create_areas_table', 0),
+(13, '2018_08_15_190958_create_cities_table', 0),
+(14, '2018_08_15_190958_create_orders_table', 0),
+(15, '2018_08_15_190958_create_settings_table', 0),
+(16, '2018_08_15_190958_create_users_table', 0);
 
 -- --------------------------------------------------------
 
@@ -129,84 +143,25 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `store` int(11) NOT NULL,
   `name` varchar(300) NOT NULL,
-  `whatsup` bigint(12) NOT NULL,
-  `address` varchar(500) NOT NULL,
-  `link` varchar(200) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `email` varchar(500) NOT NULL,
   `date` datetime NOT NULL,
-  `order` int(11) NOT NULL,
-  `charge` int(11) NOT NULL,
-  `purshase_cost` int(11) NOT NULL,
-  `charge_cost` int(11) NOT NULL,
-  `commission` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
-  `status_id` int(11) NOT NULL DEFAULT '1',
+  `area_id` int(11) NOT NULL,
+  `city_id` int(11) NOT NULL,
+  `nationalty` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- إرجاع أو استيراد بيانات الجدول `orders`
 --
 
-INSERT INTO `orders` (`id`, `store`, `name`, `whatsup`, `address`, `link`, `date`, `order`, `charge`, `purshase_cost`, `charge_cost`, `commission`, `total`, `status_id`, `created_at`, `updated_at`) VALUES
-(1, 5, 'محمد الغزالي', 972595444872, 'gaza', '', '2018-08-05 06:42:23', 0, 0, 200, 20, 20, 240, 5, '2018-08-05 17:18:29', '2018-08-05 14:18:29'),
-(2, 1, 'sabi', 972595444872, 'gaza', '', '2018-08-05 07:23:06', 0, 0, 260, 22, 11, 999, 5, '2018-08-05 16:25:55', '2018-08-05 13:25:55'),
-(3, 3, 'حازم', 972595444872, 'gaza', '', '2018-08-05 14:28:40', 12, 0, 200, 30, 10, 240, 5, '2018-08-06 06:24:38', '2018-08-06 03:24:38');
-
--- --------------------------------------------------------
-
---
--- بنية الجدول `payments`
---
-
-DROP TABLE IF EXISTS `payments`;
-CREATE TABLE IF NOT EXISTS `payments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(250) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `bank_from` varchar(250) NOT NULL,
-  `bank_to` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- بنية الجدول `products`
---
-
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `link` varchar(250) NOT NULL,
-  `color` varchar(250) NOT NULL,
-  `size` varchar(250) NOT NULL,
-  `count` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
---
--- إرجاع أو استيراد بيانات الجدول `products`
---
-
-INSERT INTO `products` (`id`, `link`, `color`, `size`, `count`, `order_id`, `created_at`, `updated_at`) VALUES
-(10, 'https://khamsat.com/', 'احمر', 'كبير', 44, 3, '2018-08-05 11:28:47', '2018-08-05 11:28:47'),
-(9, 'https://khamsat.com/', 'احمر', 'كبير', 44, 2, '2018-08-05 04:24:45', '2018-08-05 04:24:45'),
-(7, 'https://khamsat.com/', 'احمر', 'كبير', 2, 1, '2018-08-05 03:42:56', '2018-08-05 03:42:56'),
-(8, 'http://jsfiddle.net/U6N3R/', 'ازرق', 'صغير', 1, 1, '2018-08-05 03:42:56', '2018-08-05 03:42:56'),
-(11, 'https://khamsat.com/', 'احمر', 'كبير', 2, 4, '2018-08-06 03:25:37', '2018-08-06 03:25:37'),
-(12, 'https://khamsat.com/', 'احمر', 'كبير', 1, 4, '2018-08-06 03:25:37', '2018-08-06 03:25:37');
+INSERT INTO `orders` (`id`, `name`, `mobile`, `email`, `date`, `area_id`, `city_id`, `nationalty`, `created_at`, `updated_at`) VALUES
+(2, 'ادارة الاتصالات الهاتفية', '1231222331', 'mohamad342@hotmail.com', '2018-08-16 18:26:33', 5, 19, 1, '2018-08-16 15:26:33', '2018-08-16 15:26:33'),
+(3, 'محمد الغزالي', '0506341213', 'mohamad302@hotmail.com', '2018-08-17 07:49:29', 5, 19, 1, '2018-08-17 07:54:57', '2018-08-17 04:49:29');
 
 -- --------------------------------------------------------
 
@@ -217,11 +172,10 @@ INSERT INTO `products` (`id`, `link`, `color`, `size`, `count`, `order_id`, `cre
 DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `freelancer_link` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `google` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pay_message` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `msg` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `img` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `home_text` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `color` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'ss',
@@ -232,71 +186,8 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- إرجاع أو استيراد بيانات الجدول `settings`
 --
 
-INSERT INTO `settings` (`id`, `freelancer_link`, `name`, `link`, `google`, `pay_message`, `created_at`, `updated_at`, `color`) VALUES
-(1, 0, 'hatliy', 'https://www.youtube.com/embed/WO7lAf-0XeE', 'تم استقبال طلبك بنجاح, وسيتم التواصل معك خلال 12 ساعه القادمه', 'تم بنجاح', NULL, '2018-08-04 11:04:54', 'blue-rtl.min.css');
-
--- --------------------------------------------------------
-
---
--- بنية الجدول `states`
---
-
-DROP TABLE IF EXISTS `states`;
-CREATE TABLE IF NOT EXISTS `states` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(250) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-
---
--- إرجاع أو استيراد بيانات الجدول `states`
---
-
-INSERT INTO `states` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'جديد', '2018-06-29 08:17:34', '2018-06-29 06:17:34'),
-(5, 'تم الحساب', '2018-08-05 14:34:24', '2018-08-05 11:34:24'),
-(6, 'انتظار التحويل', '2018-06-29 06:15:52', '2018-06-29 06:15:52'),
-(7, 'تم التحويل', '2018-06-29 06:16:09', '2018-06-29 06:16:09'),
-(8, 'تم الطلب', '2018-06-29 06:16:15', '2018-06-29 06:16:15'),
-(9, 'تم الشحن', '2018-06-29 06:16:19', '2018-06-29 06:16:19'),
-(10, 'مكتمل', '2018-06-29 08:30:08', '2018-06-29 06:30:08'),
-(11, 'ملغي', '2018-08-05 14:34:45', '2018-08-05 11:34:45'),
-(12, 'لم يتم التحويل', '2018-07-02 14:28:11', '2018-07-02 14:28:11'),
-(13, 'تم التواصل', '2018-08-05 11:35:41', '2018-08-05 11:35:41'),
-(14, 'test2', '2018-08-06 10:46:52', '2018-08-06 07:46:52'),
-(15, 'محمد الغزالي', '2018-08-06 07:48:10', '2018-08-06 07:48:10');
-
--- --------------------------------------------------------
-
---
--- بنية الجدول `stores`
---
-
-DROP TABLE IF EXISTS `stores`;
-CREATE TABLE IF NOT EXISTS `stores` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(250) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-
---
--- إرجاع أو استيراد بيانات الجدول `stores`
---
-
-INSERT INTO `stores` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(6, 'YesStyle', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(5, 'AliExpress', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(4, 'neweeg', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(3, 'iherb', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(2, 'amazon', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(1, 'zaful', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(7, 'asos', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(8, 'JollyChic', '2018-08-05 07:20:24', '2018-08-05 07:20:24'),
-(9, 'CocoonCenter', '2018-08-05 07:20:24', '2018-08-05 07:20:24');
+INSERT INTO `settings` (`id`, `name`, `msg`, `img`, `home_text`, `created_at`, `updated_at`, `color`) VALUES
+(1, 'زوار', 'تم تسجيل بيانات بنجاح', '1534360853.jpg', 'قم بتسجيل بياناتك', NULL, '2018-08-15 17:28:37', 'default-rtl.min.css');
 
 -- --------------------------------------------------------
 
