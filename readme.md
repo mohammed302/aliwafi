@@ -1,1 +1,1 @@
-Reg laravel project
+one page registration laravel project
