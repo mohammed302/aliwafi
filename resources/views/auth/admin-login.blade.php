@@ -12,19 +12,19 @@
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-        <link href="{{asset('style/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{asset('style/assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('style/assets/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('style/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="{{asset('style/assets/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{asset('style/assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
-        <link href="{{asset('style/assets/pages/css/login-rtl.min.css?v=2')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/pages/css/login-rtl.min.css?v=2')}}" rel="stylesheet" type="text/css" />
 
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
@@ -97,30 +97,30 @@
         </div>
         <div class="copyright"> 2018 © {{$color->name}}. </div>
         <!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script> 
+<script src="../assets_cpanel/global/plugins/respond.min.js"></script>
+<script src="../assets_cpanel/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
 
-        <script src="{{asset('style/assets/global/plugins/jquery-1.10.2.min.js')}}" type="text/javascript"></script> 
+        <script src="{{asset('style/assets_cpanel/global/plugins/jquery-1.10.2.min.js')}}" type="text/javascript"></script> 
 
-        <script src="{{asset('style/assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
 
-        <script src="{{asset('style/assets/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="{{asset('style/assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript"></script>
 
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="{{asset('style/assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/scripts/app.min.js')}}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="{{asset('style/assets/pages/scripts/login.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/pages/scripts/login.min.js')}}" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

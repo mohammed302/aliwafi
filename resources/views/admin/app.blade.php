@@ -14,48 +14,48 @@
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-        <link href="{{asset('style/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{asset('style//assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('style//assets/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('style/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style//assets_cpanel/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style//assets_cpanel/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="{{asset('style//assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style//assets_cpanel/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')}}" rel="stylesheet" type="text/css" />
   <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
 
-        <link href="{{asset('style//assets/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{asset('style//assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('style/assets/global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('style/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('style//assets_cpanel/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{asset('style//assets_cpanel/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style/assets_cpanel/global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('style/assets_cpanel/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}" rel="stylesheet" type="text/css">
 
 
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="{{asset('style//assets/layouts/layout/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('style//assets/layouts/layout/css/themes/'.$color->color)}}" rel="stylesheet" type="text/css" id="style_color">
-        <link href="{{asset('style//assets/layouts/layout/css/custom.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style//assets_cpanel/layouts/layout/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('style//assets_cpanel/layouts/layout/css/themes/'.$color->color)}}" rel="stylesheet" type="text/css" id="style_color">
+        <link href="{{asset('style//assets_cpanel/layouts/layout/css/custom.css')}}" rel="stylesheet" type="text/css" />
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" type="text/css" />
         <!-- BEGIN PAGE LEVEL STYLES -->
-        <link rel="stylesheet" type="text/css" href="{{asset('style/assets/global/plugins/bootstrap-select/bootstrap-select-rtl.min.css')}}"/>
-        <link rel="stylesheet" type="text/css" href="{{asset('style/assets/global/plugins/select2/select2-rtl.css')}}"/>
-        <link rel="stylesheet" type="text/css" href="{{asset('style/assets/global/plugins/select2/select2-metronic-rtl.css')}}"/>
-        <link rel="stylesheet" type="text/css" href="{{asset('style/assets/global/plugins/jquery-multi-select/css/multi-select-rtl.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('style/assets_cpanel/global/plugins/bootstrap-select/bootstrap-select-rtl.min.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('style/assets_cpanel/global/plugins/select2/select2-rtl.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('style/assets_cpanel/global/plugins/select2/select2-metronic-rtl.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('style/assets_cpanel/global/plugins/jquery-multi-select/css/multi-select-rtl.css')}}"/>
         <link rel="shortcut icon" href="{{ asset('img/ss')}}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen-sprite.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.min.css">
-        <link rel="shortcut icon" href="http://zaawel.com/icon.ico" />
+        <link rel="shortcut icon" href="{{asset('style/front/img/logo.PNG')}}" >
         <link rel="stylesheet" type="text/css" href="//www.fontstatic.com/f=nawar" />
         <style>
-            /*   body, h1, h2, h3, a, label, p{
+               body, h1, h2, h3, a, label, p{
                 font-family: 'nawar' !important;
-                }*/
+                }
             .dataTables_info{
                 display: none;
             }
@@ -74,6 +74,7 @@
             .dt-buttons{
                 display: none;
             }
+           
         </style>
 
     </head>
@@ -89,7 +90,7 @@
                     <a href="{{url('/admin-cpx')}}" style="
                        margin-top: 10px;font-size: 20px;text-decoration:none !Important
                        ">
-                                             <!--  <img src="{{ asset('style/assets/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
+                                             <!--  <img src="{{ asset('style/assets_cpanel/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
                         -->
 
                         <span class="username username-hide-on-mobile hname" style="color:#fff;
@@ -124,7 +125,7 @@
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="{{ asset('style//assets/layouts/layout/img/avatar3_small.jpg')}}" />
+                                <img alt="" class="img-circle" src="{{ asset('style//assets_cpanel/layouts/layout/img/avatar3_small.jpg')}}" />
                                 <span class="username username-hide-on-mobile">{{ Auth::user()->name }}   </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
@@ -184,6 +185,7 @@
                             text-align: center; margin: 37px auto;
                             margin-top: 9px;
                             margin-bottom:17px;
+                                margin-right: -26px;
                         
                             ">
                             <img src="{{asset('style/front/img/logo.PNG')}}" class="img-resoisive ">
@@ -378,43 +380,42 @@
 
         <!-- END FOOTER -->
         <!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script> 
+<script src="../assets_cpanel/global/plugins/respond.min.js"></script>
+<script src="../assets_cpanel/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
 
 
-        <script src="<?= url('style/assets_cpanel/plugins/jquery-1.10.2.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/jquery-migrate-1.2.1.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/bootstrap/js/bootstrap.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/jquery-slimscroll/jquery.slimscroll.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/jquery.blockui.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/jquery.cokie.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= url('style/assets_cpanel/plugins/uniform/jquery.uniform.min.js') ?>" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/jquery-1.10.2.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/jquery.cokie.min.js') }}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-        <script src="{{asset('style/assets/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script>
-        <script type="text/javascript" src="<?= url('style/assets_cpanel/plugins/gritter/js/jquery.gritter.js') ?>"></script>
-        <script type="text/javascript" src="<?= url('style/assets_cpanel/plugins/jquery.pulsate.min.js') ?>"></script>
-        <script type="text/javascript" src="<?= url('style/assets_cpanel/plugins/jquery-bootpag/jquery.bootpag.min.js') ?>"></script>
-        <script type="text/javascript" src="<?= url('style/assets_cpanel/plugins/holder.js') ?>"></script>
-        <script type="text/javascript" src="<?= url('style/assets_cpanel/plugins/bootstrap-fileinput/bootstrap-fileinput.js') ?>"></script>
-
+        <script src="{{asset('style/assets_cpanel/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{asset('style/assets_cpanel/plugins/gritter/js/jquery.gritter.js') }}"></script>
+        <script type="text/javascript" src="{{asset('style/assets_cpanel/plugins/jquery.pulsate.min.js') }}"></script>
+        <script type="text/javascript" src="{{asset('style/assets_cpanel/plugins/jquery-bootpag/jquery.bootpag.min.js') }}"></script>
+        <script type="text/javascript" src="{{asset('style/assets_cpanel/plugins/holder.js') }}"></script>
+        <script type="text/javascript" src="{{asset('style/assets_cpanel/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}"></script>
         <!-- END PAGE LEVEL PLUGINS -->
-        <script src="{{asset('style/assets/global/plugins/counterup/jquery.waypoints.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/counterup/jquery.waypoints.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script>
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?= url('style/assets_cpanel/scripts/core/app.js') ?>"></script>
-        <script src="<?= url('style/assets_cpanel/scripts/custom/ui-general.js') ?>"></script>
-        <script src="{{asset('style/assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/scripts/core/app.js') }}"></script>
+        <script src="{{asset('style/assets_cpanel/scripts/custom/ui-general.js') }}"></script>
+        <script src="{{asset('style/assets_cpanel/global/scripts/datatable.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-        <script src="{{asset('style/assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/scripts/jquery.dataTables.columnFilter.js')}}" type="text/javascript"></script>
-        <script src="{{asset('style/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/scripts/jquery.dataTables.columnFilter.js')}}" type="text/javascript"></script>
+        <script src="{{asset('style/assets_cpanel/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
 
 
         <!-- END PAGE LEVEL SCRIPTS -->
@@ -528,7 +529,7 @@ var table = $('#example').DataTable({
         </script>
 
 
-        <script src="{{asset('style/assets/global/scripts/jquery.validate.min.js')}}"></script>
+        <script src="{{asset('style/assets_cpanel/global/scripts/jquery.validate.min.js')}}"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.min.js"></script>
